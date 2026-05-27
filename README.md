@@ -1,8 +1,8 @@
 # TuneAI — Automated ML Model Comparison Suite
 
-TuneAI came out of a PhD project where I needed to compare seven different classifiers on the same dataset, tune each one properly, and then see a clear picture of which model actually performed best. Doing that by hand — writing the same grid search loop for every algorithm, fixing deprecated API calls, wrestling with plot windows — got old fast. So I built this tool to do it automatically.
+TuneAI came out of a project during my doctoral period where I needed to compare multiple different classifiers on the same dataset, tune each one properly, and then see a clear picture of which model actually performed best. Doing that by hand — writing the same grid search loop for every algorithm, fixing deprecated API calls, wrestling with plot windows — got old fast. So I built this tool to do it automatically.
 
-You point it at any Excel file that has features in the columns and a binary label in the last column, and TuneAI handles the rest: it scales the data, runs a hyperparameter search for every classifier, evaluates each one on a held-out test split, and presents a side-by-side performance dashboard at the end.
+Any training data in xlsx format can be used that has features in the columns and a binary label in the last column, and TuneAI handles the rest: it scales the data, runs a hyperparameter search for every classifier, evaluates each one on a held-out test split, and presents a side-by-side performance dashboard at the end.
 
 ---
 
@@ -155,8 +155,7 @@ The tool is intentionally generic. A few things worth knowing:
 ## Author
 
 Abu Shad Ahammed  
-Chair of Embedded Systems, Universität Siegen  
-[abu.ahammed@uni-siegen.de](mailto:abu.ahammed@uni-siegen.de)
+Chair of Embedded Systems, Universität Siegen
 
 ---
 
