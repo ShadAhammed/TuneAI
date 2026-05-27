@@ -1,4 +1,4 @@
-"""Model performance utilities: confusion matrices and a professional dashboard.
+﻿"""Model performance utilities: confusion matrices and a professional dashboard.
 
 ModelPerformance handles three responsibilities:
   1. Drawing a per-model confusion matrix during the training loop.
@@ -19,17 +19,17 @@ import matplotlib.gridspec as gridspec
 from sklearn.metrics import classification_report
 
 
-# Seven visually distinct colors — one per classifier in the same order
+# Seven visually distinct colors - one per classifier in the same order
 # that ModelRunner trains them.  Used consistently across ROC, PR, and
 # bar chart panels so a reader can cross-reference panels easily.
 _PALETTE = [
-    '#2196F3',  # ANN            — blue
-    '#4CAF50',  # SVM            — green
-    '#FF5722',  # XGBoost        — deep orange
-    '#9C27B0',  # Random Forest  — purple
-    '#FF9800',  # Logistic Reg.  — amber
-    '#00BCD4',  # Naive Bayes    — cyan
-    '#F44336',  # KNN            — red
+    '#2196F3',  # ANN            - blue
+    '#4CAF50',  # SVM            - green
+    '#FF5722',  # XGBoost        - deep orange
+    '#9C27B0',  # Random Forest  - purple
+    '#FF9800',  # Logistic Reg.  - amber
+    '#00BCD4',  # Naive Bayes    - cyan
+    '#F44336',  # KNN            - red
 ]
 
 
@@ -39,7 +39,7 @@ class ModelPerformance:
     Parameters
     ----------
     X_test: held-out feature matrix.
-    y_test: held-out labels — DataFrame, Series, or 1-D array.
+    y_test: held-out labels - DataFrame, Series, or 1-D array.
     """
 
     def __init__(self, X_test, y_test) -> None:
@@ -316,11 +316,11 @@ class ModelPerformance:
             try:
                 v = float(val_str)
                 if v >= 0.87:
-                    return '#C8E6C9'   # light green — excellent
+                    return '#C8E6C9'   # light green - excellent
                 elif v >= 0.75:
-                    return '#FFF9C4'   # light yellow — good
+                    return '#FFF9C4'   # light yellow - good
                 else:
-                    return '#FFCDD2'   # light red — needs attention
+                    return '#FFCDD2'   # light red - needs attention
             except ValueError:
                 return '#FFFFFF'
 

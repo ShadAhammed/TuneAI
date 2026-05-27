@@ -1,4 +1,4 @@
-"""Artificial Neural Network with automated hyperparameter tuning.
+﻿"""Artificial Neural Network with automated hyperparameter tuning.
 
 Uses Keras Tuner (Hyperband by default) to find the best architecture
 across three hidden layers.  The search explores layer widths, activation
@@ -69,9 +69,9 @@ class ANN:
         """Create and run a Keras Tuner search, returning the configured tuner.
 
         tuner_id legend:
-            1 — RandomSearch
-            2 — Hyperband  (default, fastest)
-            3 — BayesianOptimization
+            1 - RandomSearch
+            2 - Hyperband  (default, fastest)
+            3 - BayesianOptimization
         """
         common_kwargs = dict(
             hypermodel=self._build_model,
@@ -88,7 +88,7 @@ class ANN:
         elif tuner_id == 3:
             tuner = kt.BayesianOptimization(**common_kwargs, max_trials=max_trials)
         else:
-            # Hyperband is the default — good balance of speed and coverage
+            # Hyperband is the default - good balance of speed and coverage
             max_epochs = 10 if self.QUICK_MODE else 20
             tuner = kt.Hyperband(**common_kwargs, max_epochs=max_epochs, factor=3)
 
@@ -113,7 +113,7 @@ class ANN:
         best_hp = tuner.get_best_hyperparameters(num_trials=1)[0]
         print(f'\nBest ANN hyperparameters: {best_hp.values}\n')
 
-        # Build directly from the bound method — avoids relying on
+        # Build directly from the bound method - avoids relying on
         # tuner.hypermodel.build(), which behaves differently depending on
         # whether hypermodel was a callable or a HyperModel subclass.
         fit_epochs = 30 if self.QUICK_MODE else 80

@@ -1,4 +1,4 @@
-"""Hyperparameter search wrappers: GridSearch and RandomSearch.
+﻿"""Hyperparameter search wrappers: GridSearch and RandomSearch.
 
 The Tuner class applies both strategies to a given model and parameter grid,
 printing the best result from each.  The caller picks whichever strategy
@@ -22,7 +22,7 @@ class Tuner:
     y_train:  training labels (1-D array).
     """
 
-    # 3-fold CV is a pragmatic choice — enough folds to reduce variance
+    # 3-fold CV is a pragmatic choice - enough folds to reduce variance
     # without making the search prohibitively slow on larger datasets.
     CV_FOLDS = 3
     QUICK_MODE = False

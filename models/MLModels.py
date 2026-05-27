@@ -1,4 +1,4 @@
-"""ModelRunner — orchestrates all seven classifiers end-to-end.
+﻿"""ModelRunner - orchestrates all seven classifiers end-to-end.
 
 Instantiate with training data, call RunModel() with test data and a
 dataset label.  After all models finish, the runner:
@@ -142,7 +142,7 @@ class ModelRunner:
             roc_data=self._roc_data if self._roc_data else None,
         )
 
-        # JSON results file — loaded by the interactive Streamlit dashboard
+        # JSON results file - loaded by the interactive Streamlit dashboard
         json_path = save_results(
             results_dir=results_dir,
             dataset_label=dataset_label,

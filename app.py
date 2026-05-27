@@ -1,13 +1,13 @@
-"""TuneAI Interactive Dashboard.
+﻿"""TuneAI Interactive Dashboard.
 
 Run with:
     streamlit run app.py
 
 The dashboard has two modes:
-  1. Browse — pick any previously completed run from the sidebar and
+  1. Browse - pick any previously completed run from the sidebar and
      explore all its metrics interactively (ROC curves, PR curves,
      confusion matrices, and the metrics table).
-  2. Run new data — upload an Excel file, configure options, and let
+  2. Run new data - upload an Excel file, configure options, and let
      TuneAI train, tune, and evaluate all seven classifiers.  Results
      are saved automatically so you can come back to them later.
 
@@ -121,7 +121,7 @@ st.markdown("""
         color: #8bb5cc !important;
     }
 
-    /* File uploader — keep only the widget's own label, no extras */
+    /* File uploader - keep only the widget's own label, no extras */
     [data-testid="stFileUploaderDropzoneInput"] + div span {
         font-family: "Times New Roman", Times, serif !important;
         font-size: 11px !important;
@@ -132,7 +132,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Consistent color per model — same palette as the static PNG dashboard
+# Consistent color per model - same palette as the static PNG dashboard
 _PALETTE = [
     '#2196F3', '#4CAF50', '#FF5722', '#9C27B0',
     '#FF9800', '#00BCD4', '#F44336',
@@ -168,7 +168,7 @@ with st.sidebar:
     # -- Run new data ----------------------------------------------------
     st.subheader('Run New Dataset')
     uploaded_file = st.file_uploader(
-        'Excel file (.xlsx) — last column = target (0/1)',
+        'Excel file (.xlsx) - last column = target (0/1)',
         type=['xlsx', 'xls'],
     )
 
@@ -199,7 +199,7 @@ with st.sidebar:
 # Handle "Run Analysis" click
 # -------------------------------------------------------------------------
 if run_button and uploaded_file is not None:
-    # Lazy import — only needed when the user actually runs a dataset
+    # Lazy import - only needed when the user actually runs a dataset
     from sklearn.preprocessing import MinMaxScaler
     from sklearn.model_selection import train_test_split
     from src.DataExp.TrgData import DataPreparation
@@ -207,7 +207,7 @@ if run_button and uploaded_file is not None:
     from src.models.ModelTuning import Tuner
     from src.models.ANN import ANN as ANNClass
 
-    st.info('Analysis started — this takes several minutes. Do not close this tab.')
+    st.info('Analysis started - this takes several minutes. Do not close this tab.')
     progress_bar = st.progress(0, text='Loading data ...')
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.xlsx') as tmp:
@@ -247,7 +247,7 @@ if run_button and uploaded_file is not None:
         'target_column': data.columns[-1],
     }
 
-    progress_bar.progress(15, text='Training models (ANN first — this takes the longest) ...')
+    progress_bar.progress(15, text='Training models (ANN first - this takes the longest) ...')
 
     safe_label = custom_label.replace(' ', '_')
     dashboard_path = os.path.join(RESULTS_DIR, f'dashboard_{safe_label}.png')
@@ -278,7 +278,7 @@ if run_button and uploaded_file is not None:
 # -------------------------------------------------------------------------
 # Main display area
 # -------------------------------------------------------------------------
-st.title('TuneAI — Interactive Performance Dashboard')
+st.title('TuneAI - Interactive Performance Dashboard')
 
 if not result_labels:
     st.info(
@@ -297,11 +297,11 @@ ts      = results.get('timestamp', '')
 # Header row: dataset metadata
 st.subheader(label)
 col1, col2, col3, col4, col5 = st.columns(5)
-col1.metric('Train samples', f"{info.get('n_train', '—'):,}")
-col2.metric('Test samples',  f"{info.get('n_test', '—'):,}")
-col3.metric('Features',       info.get('n_features', '—'))
+col1.metric('Train samples', f"{info.get('n_train', '-'):,}")
+col2.metric('Test samples',  f"{info.get('n_test', '-'):,}")
+col3.metric('Features',       info.get('n_features', '-'))
 col4.metric('Class balance',  f"{info.get('class_balance', 0):.1%}")
-col5.metric('Run date', ts[:10] if ts else '—')
+col5.metric('Run date', ts[:10] if ts else '-')
 
 st.divider()
 
@@ -492,7 +492,7 @@ with tab_pr:
             paper_bgcolor='#0a1628',
         )
         st.plotly_chart(fig_pr, use_container_width=True)
-        st.caption('Average Precision (AP) is the area under the PR curve — '
+        st.caption('Average Precision (AP) is the area under the PR curve - '
                    'higher is better, especially on imbalanced datasets.')
 
 
@@ -548,7 +548,7 @@ with tab_cm:
             st.plotly_chart(fig_cm, use_container_width=True)
 
         with col_stats:
-            st.markdown(f'### {selected_model} — Derived Metrics')
+            st.markdown(f'### {selected_model} - Derived Metrics')
             st.metric('Accuracy',    f'{acc:.4f}')
             st.metric('Sensitivity (Recall)', f'{sens:.4f}')
             st.metric('Specificity', f'{spec:.4f}')
@@ -562,7 +562,7 @@ with tab_cm:
 
 # === Tab 5: Raw Metrics =================================================
 with tab_raw:
-    st.markdown('#### All Models — Full Metrics Table')
+    st.markdown('#### All Models - Full Metrics Table')
 
     def _color_cell(val):
         if not isinstance(val, (int, float)) or np.isnan(val):

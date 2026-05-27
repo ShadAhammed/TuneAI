@@ -1,4 +1,4 @@
-"""File selection dialog for loading training data.
+﻿"""File selection dialog for loading training data.
 
 SelectData is intentionally simple: it wraps a native OS file-picker so
 the user can point the tool at any Excel file without editing code.
@@ -48,7 +48,7 @@ class SelectData:
         root.destroy()
 
         if not filepath:
-            print('No file selected — exiting.')
+            print('No file selected - exiting.')
             sys.exit(0)
 
         try:

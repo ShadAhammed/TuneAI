@@ -1,4 +1,4 @@
-"""TuneAI — entry point.
+﻿"""TuneAI - entry point.
 
 Run without arguments to pick a file via dialog, or pass a path directly:
 

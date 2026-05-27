@@ -1,4 +1,4 @@
-"""Hyperparameter search grids and base model instances for all classifiers.
+﻿"""Hyperparameter search grids and base model instances for all classifiers.
 
 Each model gets two things defined here: a parameter grid (used by GridSearch
 and RandomSearch) and a base model instance with sensible defaults. Keeping
@@ -15,7 +15,7 @@ from sklearn.naive_bayes import GaussianNB
 from xgboost import XGBClassifier
 
 
-# Support Vector Classifier — RBF kernel, sweep C and gamma
+# Support Vector Classifier - RBF kernel, sweep C and gamma
 SVCParams = {
     'kernel': ['rbf'],
     'gamma': [0.1, 0.01, 0.001],
@@ -24,7 +24,7 @@ SVCParams = {
 SVCModel = SVC(probability=True)
 
 
-# XGBoost — tree depth, regularisation, and sampling rates
+# XGBoost - tree depth, regularisation, and sampling rates
 XGBParams = {
     'min_child_weight': [3, 5, 8, 10],
     'gamma': [0.5, 0.8, 1.0, 1.2, 2.0, 3.0],
@@ -35,7 +35,7 @@ XGBParams = {
 XGBModel = XGBClassifier(eval_metric='logloss')
 
 
-# Random Forest — 'auto' was removed in sklearn 1.3; use 'sqrt' or 'log2' instead
+# Random Forest - 'auto' was removed in sklearn 1.3; use 'sqrt' or 'log2' instead
 RFParams = {
     'max_features': ['sqrt', 'log2'],
     'n_estimators': [50, 100, 200, 400, 600],
@@ -47,7 +47,7 @@ RFParams = {
 RFModel = RandomForestClassifier(n_jobs=-1)
 
 
-# Logistic Regression — regularisation strength and penalty type
+# Logistic Regression - regularisation strength and penalty type
 LRParams = {
     'C': np.logspace(-4, 4, 20),
     'penalty': ['l2'],          # liblinear supports l1 but newton-cg/lbfgs need l2
@@ -56,12 +56,12 @@ LRParams = {
 LRModel = LogisticRegression(max_iter=1000)
 
 
-# Naive Bayes — only the variance smoothing floor is tunable
+# Naive Bayes - only the variance smoothing floor is tunable
 NBParams = {'var_smoothing': [1e-9, 1e-8, 1e-7]}
 NBModel = GaussianNB()
 
 
-# K-Nearest Neighbours — neighbour count, weighting, and distance metric
+# K-Nearest Neighbours - neighbour count, weighting, and distance metric
 KNNParams = {
     'n_neighbors': range(1, 16, 2),
     'weights': ['uniform', 'distance'],

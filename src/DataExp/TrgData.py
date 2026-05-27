@@ -1,8 +1,8 @@
-"""Data preparation: statistics, scaling, and train/test splitting.
+﻿"""Data preparation: statistics, scaling, and train/test splitting.
 
 The DataPreparation class takes a raw DataFrame (loaded from any Excel file)
 and prepares it for machine learning.  It assumes the last column is the
-target variable — no column name is hardcoded, so the same class works for
+target variable - no column name is hardcoded, so the same class works for
 any dataset regardless of how the columns are named.
 """
 

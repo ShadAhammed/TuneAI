@@ -1,0 +1,12 @@
+﻿---
+description: Typography and punctuation for docs, comments, and UI strings.
+alwaysApply: true
+---
+
+# Writing Style
+
+- Never use the em dash character (Unicode U+2014) in code, comments, docstrings,
+  README, UI labels, commit messages, or any project text.
+- Use a hyphen-minus (`-`) instead, with spaces where needed for readability
+  (e.g. `TuneAI - entry point` instead of an em dash between words).
+- When editing existing files, replace any em dash with `-` before committing.

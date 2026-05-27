@@ -1,4 +1,4 @@
-"""Legacy batch runner — kept for reference.
+﻿"""Legacy batch runner - kept for reference.
 
 The preferred way to use TuneAI is to run ``python run.py`` from the
 project root, which opens a file-picker and handles a single dataset

@@ -1,6 +1,6 @@
-# TuneAI — Automated ML Model Comparison Suite
+﻿# TuneAI - Automated ML Model Comparison Suite
 
-TuneAI came out of a project during my doctoral period where I needed to compare multiple different classifiers on the same dataset, tune each one properly, and then see a clear picture of which model actually performed best. Doing that by hand — writing the same grid search loop for every algorithm, fixing deprecated API calls, wrestling with plot windows — got old fast. So I built this tool to do it automatically.
+TuneAI came out of a project during my doctoral period where I needed to compare multiple different classifiers on the same dataset, tune each one properly, and then see a clear picture of which model actually performed best. Doing that by hand - writing the same grid search loop for every algorithm, fixing deprecated API calls, wrestling with plot windows - got old fast. So I built this tool to do it automatically.
 
 Any training data in xlsx format can be used that has features in the columns and a binary label in the last column, and TuneAI handles the rest: it scales the data, runs a hyperparameter search for every classifier, evaluates each one on a held-out test split, and presents a side-by-side performance dashboard at the end.
 
@@ -8,18 +8,18 @@ Any training data in xlsx format can be used that has features in the columns an
 
 ## What it does
 
-When you run the tool it opens a file picker. Select your Excel file and walk away — the software will:
+When you run the tool it opens a file picker. Select your Excel file and walk away - the software will:
 
 1. Load and describe your dataset (sample count, class balance, feature count)
 2. Scale features using Min-Max normalisation and split 70/30 into train and test sets
 3. Train and tune seven classifiers in sequence:
-   - **ANN** — three-layer neural network, tuned with Keras Tuner (Hyperband)
-   - **SVM** — Support Vector Machine with an RBF kernel
-   - **XGBoost** — Extreme Gradient Boosting
-   - **Random Forest** — ensemble of decision trees
-   - **Logistic Regression** — regularised linear classifier
-   - **Naive Bayes** — Gaussian probabilistic classifier
-   - **KNN** — K-Nearest Neighbours
+   - **ANN** - three-layer neural network, tuned with Keras Tuner (Hyperband)
+   - **SVM** - Support Vector Machine with an RBF kernel
+   - **XGBoost** - Extreme Gradient Boosting
+   - **Random Forest** - ensemble of decision trees
+   - **Logistic Regression** - regularised linear classifier
+   - **Naive Bayes** - Gaussian probabilistic classifier
+   - **KNN** - K-Nearest Neighbours
 4. Show a confusion matrix after each model runs
 5. Print a formatted comparison table (accuracy, precision, recall, F1-score)
 6. Render a grouped bar chart dashboard so you can see everything at a glance
@@ -61,7 +61,7 @@ Your Excel file needs to follow a simple structure:
 - The first column is treated as the index.
 - Every column except the last is treated as a feature.
 - The last column must be a binary label (0 or 1).
-- The column names can be anything — TuneAI does not rely on specific names.
+- The column names can be anything - TuneAI does not rely on specific names.
 
 > **Privacy note:** The `data/` folder is excluded from version control. Never commit real research or patient data to the repository.
 
@@ -98,11 +98,11 @@ python models/main.py
 
 ```
 TuneAI/
-├── run.py                      # Main entry point — run this
+├── run.py                      # Main entry point - run this
 ├── requirements.txt
 ├── models/
 │   ├── main.py                 # Batch runner for multiple datasets
-│   ├── MLModels.py             # ModelRunner — orchestrates all classifiers
+│   ├── MLModels.py             # ModelRunner - orchestrates all classifiers
 │   └── ModelParams.py          # Hyperparameter grids for each classifier
 ├── src/
 │   ├── DataExp/
@@ -119,7 +119,7 @@ TuneAI/
 │   │   └── ModelTuning.py      # Shared GridSearch / RandomSearch wrapper
 │   └── visualization/
 │       └── Performance.py      # Confusion matrices and dashboard chart
-└── data/                       # NOT in git — put your data files here
+└── data/                       # NOT in git - put your data files here
 ```
 
 ---
@@ -148,7 +148,7 @@ The tool is intentionally generic. A few things worth knowing:
 - **Target column:** TuneAI always treats the last column of your spreadsheet as the label. No configuration needed.
 - **Adding a model:** Create a new class in `src/models/` following the same pattern as `LR.py`, add its parameters to `models/ModelParams.py`, and call it from `ModelRunner.RunModel()` in `models/MLModels.py`.
 - **Changing the search strategy:** Edit the `Tuner` class in `src/models/ModelTuning.py` or adjust the ANN search in `src/models/ANN.py`.
-- **Tuning the ANN search:** Change `tuner_id` in `ModelRunner.RunModel()` — `1` = RandomSearch, `2` = Hyperband (default), `3` = BayesianOptimization.
+- **Tuning the ANN search:** Change `tuner_id` in `ModelRunner.RunModel()` - `1` = RandomSearch, `2` = Hyperband (default), `3` = BayesianOptimization.
 
 ---
 
@@ -161,4 +161,4 @@ Chair of Embedded Systems, Universität Siegen
 
 ## License
 
-BSD 3-Clause — see [LICENSE](LICENSE) for full terms.
+BSD 3-Clause - see [LICENSE](LICENSE) for full terms.
