@@ -1,0 +1,32 @@
+# Core ML framework
+tensorflow~=2.21.0
+keras~=3.14.0
+keras-tuner~=1.4.8
+tensorboard~=2.21.0
+
+# Classical ML and gradient boosting
+scikit-learn~=1.8.0
+xgboost~=3.2.0
+
+# Data handling
+pandas~=3.0.1
+numpy~=2.4.1
+openpyxl~=3.1.5          # required for pd.read_excel() with .xlsx files
+
+# Visualization
+matplotlib~=3.10.8
+
+# Output formatting
+tabulate~=0.9.0           # 0.10.0 also works
+
+# Environment configuration
+python-dotenv>=0.5.1
+
+# Interactive dashboard
+streamlit>=1.35.0
+plotly>=5.22.0
+
+# Development / CI
+coverage
+flake8
+Sphinx
